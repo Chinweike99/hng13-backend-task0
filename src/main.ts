@@ -8,7 +8,8 @@ async function bootstrap() {
 
   const logger = new Logger("Bootstrap");
   const configService = app.get(ConfigService);
-  const port = configService.get<number>('PORT') || 3000;
+  const port = process.env.PORT || configService.get<number>('PORT') || 4000;
+
 
   app.useGlobalPipes(new ValidationPipe());
 
